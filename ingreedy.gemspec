@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
 
   s.add_dependency "parslet", "~> 1.8.0", ">= 1.8.0"
+  s.add_dependency "unicode", "~> 0.4.4", ">= 0.4.4"
 
   s.add_development_dependency "rake", "~> 0.9", ">= 0.9"
   s.add_development_dependency "rspec", "~> 3.3.0", ">= 3.3.0"
