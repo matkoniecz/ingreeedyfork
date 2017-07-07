@@ -1,18 +1,18 @@
-require File.expand_path("../lib/ingreedy/version", __FILE__)
+require File.expand_path("../lib/ingreedyfork/version", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "ingreedy"
+  s.name        = "ingreedyfork"
   s.version     = Ingreedy::VERSION
   s.licenses    = ["MIT"]
-  s.authors     = ["Ian C. Anderson"]
-  s.email       = ["ian@iancanderson.com"]
+  s.authors     = ["Ian C. Anderson, support for Polish added by Mateusz Konieczny "]
+  s.email       = ["matkoniecz@gmail.com"]
 
-  s.summary     = "Recipe parser"
+  s.summary     = "Recipe parser (fork of ingreedy)"
   s.description = <<-MSG
     Natural language recipe ingredient parser that supports numeric amount,
     units, and ingredient
   MSG
-  s.homepage = "http://github.com/iancanderson/ingreedy"
+  s.homepage = "http://github.com/matkoniecz/ingreedy-fork"
 
   s.files = `git ls-files`.split("\n")
   s.require_path = "lib"
