@@ -462,7 +462,7 @@ describe Ingreedy, "parsing unitless case (dziesięć -> 10) with Polish locale"
   end
 end
 
-describe Ingreedy, "parsing unitless case (kilkanaście -> 11 to 19) with Polish locale" do
+describe Ingreedy, "parsing unitless case (kilkanaście -> 11 to 19)" do
   context "Polish locale" do
     before(:all) do
       Ingreedy.locale = :pl
