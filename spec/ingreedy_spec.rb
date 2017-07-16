@@ -483,17 +483,7 @@ describe Ingreedy, "amount parsing with :pl locale" do
       "marchewki trzy" => 3,
     }.each do |query, expected|
       it "parses the correct amount as a rational" do
-      	parsed = nil
-      	begin
-	      	parsed = Ingreedy.parse(query)
-	      rescue => e
-          puts "failed on #{query} with #{e.class}"
-	      	#puts e
-	      	#puts e.class
-	      	#necessary as raising e crashes rspec - for further investigation try to run parsing test on something like "banana"
-	      	# report on https://github.com/rspec/rspec-core/issues?page=2&q=is%3Aissue+is%3Aopen
-	      end
-        expect(parsed).to parse_the_amount(expected.to_r)
+        expect(Ingreedy.parse(query)).to parse_the_amount(expected.to_r)
       end
     end
   end
