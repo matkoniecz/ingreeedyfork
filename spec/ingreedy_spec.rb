@@ -443,6 +443,45 @@ describe Ingreedy, "without units" do
   end
 end
 
+describe Ingreedy, "parsing unitless case (dziesięć -> 10) with Polish locale" do
+  context "Polish locale" do
+    before(:all) do
+      Ingreedy.locale = :pl
+    end
+
+    after(:all) do
+      Ingreedy.locale = nil
+    end
+    it "parses correctly units that is prefix of other unit" do
+      result = Ingreedy.parse "dziesięć oliwek"
+
+      expect(result.amount).to eq(10)
+      expect(result.unit).to eq nil
+      expect(result.ingredient).to eq("oliwek")
+    end
+  end
+end
+
+describe Ingreedy, "parsing unitless case (kilkanaście -> 11 to 19) with Polish locale" do
+  context "Polish locale" do
+    before(:all) do
+      Ingreedy.locale = :pl
+    end
+
+    after(:all) do
+      Ingreedy.locale = nil
+    end
+    it "parses correctly units that is prefix of other unit" do
+      result = Ingreedy.parse "kilkanaście oliwek"
+
+      expect(result.amount).to greater_than_or_equal_to(11)
+      expect(result.amount).to lower_than_or_equal_to(19)
+      expect(result.unit).to eq nil
+      expect(result.ingredient).to eq("oliwek")
+    end
+  end
+end
+
 describe Ingreedy, "amount parsing with :pl locale" do
   context "Polish locale" do
     before(:all) do
