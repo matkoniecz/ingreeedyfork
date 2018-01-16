@@ -25,3 +25,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency "coveralls", "~> 0.7.0", ">= 0.7.0"
   s.add_development_dependency "pry", '~> 0'
 end
+
+=begin
+how to release new gem version:
+
+rm *.gem
+gem build *.gemspec
+gem install --user-install *.gem
+gem push *.gem
+=end
