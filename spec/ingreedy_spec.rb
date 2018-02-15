@@ -433,7 +433,7 @@ describe Ingreedy, "without units" do
     after(:all) do
       Ingreedy.locale = nil
     end
-    it "parses correctly units that is prefix of other unit" do
+    it "parses correctly units" do
       result = Ingreedy.parse "3 płaskie łyżki majonezu"
 
       expect(result.amount).to eq(3)
@@ -452,7 +452,7 @@ describe Ingreedy, "parsing unitless case (dziesięć -> 10) with Polish locale"
     after(:all) do
       Ingreedy.locale = nil
     end
-    it "parses correctly units that is prefix of other unit" do
+    it "parses correctly units that has number with prefix matching name of other number" do
       result = Ingreedy.parse "dziesięć oliwek"
 
       expect(result.amount).to eq(10)
@@ -471,7 +471,7 @@ describe Ingreedy, "parsing unitless case (kilkanaście -> 11 to 19)" do
     after(:all) do
       Ingreedy.locale = nil
     end
-    it "parses correctly units also when other unit is prefix of it" do
+    it "parses correctly units that has number with prefix matching name of other number" do
       result = Ingreedy.parse "kilkanaście oliwek"
 
       expect(result.amount).to be >= 11
