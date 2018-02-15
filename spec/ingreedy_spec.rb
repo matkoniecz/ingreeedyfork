@@ -471,11 +471,31 @@ describe Ingreedy, "parsing unitless case (kilkanaście -> 11 to 19)" do
     after(:all) do
       Ingreedy.locale = nil
     end
-    it "parses correctly units that is prefix of other unit" do
+    it "parses correctly units also when other unit is prefix of it" do
       result = Ingreedy.parse "kilkanaście oliwek"
 
-      expect(result.amount).to greater_than_or_equal_to(11)
-      expect(result.amount).to lower_than_or_equal_to(19)
+      expect(result.amount).to be >= 11
+      expect(result.amount).to be <= 19
+      expect(result.unit).to eq nil
+      expect(result.ingredient).to eq("oliwek")
+    end
+  end
+end
+
+describe Ingreedy, "parsing unitless case (kilkanaście in reverse order -> 11 to 19)" do
+  context "Polish locale" do
+    before(:all) do
+      Ingreedy.locale = :pl
+    end
+
+    after(:all) do
+      Ingreedy.locale = nil
+    end
+    it "parses correctly units also when other unit is prefix of it" do
+      result = Ingreedy.parse "oliwek kilkanaście"
+
+      expect(result.amount).to be >= 11
+      expect(result.amount).to be <= 19
       expect(result.unit).to eq nil
       expect(result.ingredient).to eq("oliwek")
     end
