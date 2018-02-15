@@ -3,7 +3,7 @@ if ENV["CI"]
   Coveralls.wear!
 end
 
-require "ingreedy"
+require "ingreedyfork"
 require "parslet/rig/rspec"
 require "pry"
 
